@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>PharmaSonic Web Control</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Pharmaceutical tablet testing via Ultrasonic methods.">
+		<meta name="author" content="Brian Zalewski" >
+
+		<link href="style.css" rel="stylesheet">
+		<link href="http://fonts.googleapis.com/css?family=Signika" rel="stylesheet" type="text/css">
+		<link rel="shortcut icon" href="img/favicon.png">
+
+		<script src="js/breakout.js"></script>
+		<script src="js/pharmasonic.js"></script>
+		<script src="js/onready.js"></script>
+		<script src="js/real.js"></script>
+		<script src="js/complex.js"></script>
+	</head>
+
+	<body>
+    <div id="wrap">
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar">hi</span>
+              <span class="icon-bar">hi</span>
+              <span class="icon-bar">hi</span>
+            </button>
+			<img src="img/logo.png" class="brand" style="height: 40px">
+            <a class="brand" href="http://enviedsolutions.com/" style="padding-top:20px; font-family: Signika; font-size: 24px;">PharmaSonic Web Control</a>
+            <div class="nav-collapse collapse" style="padding-top: 20px">
+              <ul class="nav pull-right">
+                <li id="controlid" class="active"><a href="#" id="controlbtn">Control</a></li>
+                <li id="analyzeid"><a href="#">Analyze</a></li>
+				<!--<li id="calibrateid"><a href="#">Calibrate</a></li>-->
+                <li class="dropdown">
+                  <a href="#" id="drop3" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+                  <ul class="dropdown-menu" role="menu" style="pull-right" aria-labelledby="drop3">
+					<li class="nav-header">Oscilloscope</li>
+                    <li id="screenshotid"><a href="#ScreenshotModal" data-toggle="modal">Screenshot</a></li>
+                    <li><a href="#ControlModal" data-toggle="modal">Settings</a></li>
+                    <!--<li><a href="#DataModal" data-toggle="modal">Data Import/Export</a></li>-->
+                    <!--<li class="divider"></li>
+                    <li class="nav-header">Experimental</li>
+                    <li><a href="#PWMModal" data-toggle="modal">Pulse Width Modulation Oscillator</a></li>
+                    <!--<li><a href="#TriggerModal" data-toggle="modal">Trigger Sensor</a></li>-->
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+<div id="ScreenshotModal" class="modal hide fade" tabindex="-1" style="width: 670px; height: 600px; max-height: 600px;" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="ScreenshotModalHeader">Oscilloscope Screenshot</h3>
+  </div>
+  <div id ="screenshotiframediv" class="modal-body" style="width: 640px;  height: 480px; max-height: 520px; overflow-y: hidden;">
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button id="screenshotrefresh" class="btn btn-primary">Refresh</button>
+  </div>
+</div>
+<div id="EnterName" class="modal hide fade" tabindex="-1" style="" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="EnterNameHeader">Waveform Name</h3>
+  </div>
+    <div class="modal-body">
+	<input id="waveformnameinput" type="text" placeholder="Enter a name for the waveform" style="width: 500px; padding: 10px 14px;">
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button id="savewaveform" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Save</button>
+  </div>
+</div>
+<div id="EnterNameHome" class="modal hide fade" tabindex="-1" style="" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="EnterNameHeader">Waveform Name</h3>
+  </div>
+    <div class="modal-body">
+	<input id="waveformnameinputhome" type="text" placeholder="Enter a name for the waveform" style="width: 500px; padding: 10px 14px;">
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button id="savewaveformhome" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Save</button>
+  </div>
+</div>
+<div id="ControlModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3>Oscilloscope Settings</h3>
+  </div>
+ <div class="modal-body">
+<div class="row-fluid"><strong class="span6">Data Source:</strong><strong class="span6">Acquisition Mode:</strong></div>
+<div class="row-fluid"><div class="span6"><select class="span10">
+                <option>Channel 1</option>
+                <option>Channel 2</option>
+                <option>Reference 1</option>
+                <option>Reference 2</option>
+                <option>Reference 3</option>
+		<option>Reference 4</option>
+		<option>Math</option>
+              </select></div>
+<div class="span6"><select class="span10">
+<option>Sample</option>
+<option>Peak Detect</option>
+<option>Envelope</option>
+<option>Average</option>
+</select></div></div>
+<div class="row-fluid"><strong class="span6">Wave Sampling Rate:</strong><strong class="span6">Starting Point:</strong></div>
+<div class="row-fluid"><div class="span6"><select class="span10">
+                <option>2</option>
+                <option>4</option>
+                <option>8</option>
+                <option>16</option>
+                <option>32</option>
+                <option>64</option>
+                <option>128</option>
+                <option>256</option>
+                <option>512</option>
+              </select></div>
+<div class="span6"><select class="span10">
+                <option>Setup 1</option>
+                <option>Setup 2</option>
+                <option>Setup 3</option>
+                <option>Setup 4</option>
+                <option>Setup 5</option>
+                <option>Setup 6</option>
+              </select></div></div>
+<div class="row-fluid"><strong class="span6">Waves to Combine:</strong><strong class="span6"></strong></div>
+<div class="row-fluid"><div class="span6"><select class="span10">
+                <option>1</option>
+                <option>2</option>
+                <option>4</option>
+		<option>6</option>
+		<option>8</option>
+		<option>10</option>
+		<option>12</option>
+		<option>14</option>
+		<option>16</option>
+		<option>18</option>
+		<option>20</option>
+              </select></div>
+<div class="span6"><!--<select class="span10">
+                <option>Setup 1</option>
+                <option>Setup 2</option>
+                <option>Setup 3</option>
+                <option>Setup 4</option>
+                <option>Setup 5</option>
+                <option>Setup 6</option>
+              </select>--></div></div>
+
+  </div>
+  <div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		<button type="button" id="setsettingsid" class="btn btn-primary" data-loading-text="Saving Settings..." >Save</button>
+  </div>
+</div>
+<div id="DataModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3>Oscilloscope Data Import/Export</h3>
+  </div>
+  <div class="modal-body">
+<!--  <iframe id="dataiframe" src="http://mashable.com/" style="width: 500px; height: 500px;"></iframe>-->
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+<div id="PWMModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h5>Pulse Width Modulation Oscillator (Experimental)</h5>
+  </div>
+  <div class="modal-body">
+  <div class="btn-group">
+  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    Select Waveform
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li><a href="#" id="oscsquare">Square</a></li>
+    <li><a href="#" id="oscsine">Sine</a></li>
+    <li><a href="#" id="oscsaw">Saw</a></li>
+	<li><a href="#" id="osctriangle">Triangle</a></li>
+	<li><a href="#" id="oscimpulse">Impulse</a></li>
+	<li><a href="#" id="osclinear">Linear</a></li>
+  </ul>
+</div>
+<div style="float:right;">Frequency (0.1 - 33):<input id="freq" type="number" value="1.0" min="0.1" max="33.0" step="0.1" /></div>
+
+        <div class="scopeContainer clear">
+            <canvas id="scope1" class="scope" width="400" height="200"></canvas>            
+        </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+<div id="TriggerModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3>Trigger Point (Experimental)</h3>
+  </div>
+  <div class="modal-body">
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+      <div class="container">
+	  <div id="controlpanel">
+		<div class="row" style="padding-top: 20px;">
+			<div class="span3" id="accelprofile">
+				<h5 style="text-align: center">Acceleration Profile</h5>
+						<section style="margin-top: 15px;">
+						<label for="numSteps">Steps to Move (+ CW, - CCW): </label>
+						<input id="numSteps" type="number" value="200" min="-2097150" max="2097150" step="1" />
+						</section>
+
+						<section style="margin-top: 10px;">
+						<div id="stepSpeed">Speed (rad/sec): <strong>10.0 (95.5 RPM)</strong></div>
+						<input type="text"  value="10" id="sl1" style="">
+						</section>
+
+						<section style="margin-top: 15px;">
+						<div id="accel">Acceleration (rad/sec<sup>2</sup>): <strong>20.0</strong></div>
+						<input type="text" value="20" id="sl2" style="">
+						</section>
+
+						<section style="margin-top: 15px;">
+						<div id="decel">Deceleration (rad/sec<sup>2</sup>): <strong>20.0</strong></div>
+						<input type="text" value="20" id="sl3" style="">
+						</section>
+
+						<section>
+						
+						<!--<button type="button" id="stepperstart" class="btn btn-primary" style="margin-top: 15px;" data-loading-text="Running Step Sequence..." data-toggle="popover" data-content="You must enter a step count greater than 0." data-trigger="manual">Run Step Sequence</button>-->
+						<div class="btn-group" style="margin-top: 20px;" data-loading-text="Running Step Sequence...">
+							<button type="button" id="stepperstart" class="btn" data-loading-text="Running Step Sequence..." data-toggle="popover" data-content="Step count must be greater than 0." data-trigger="manual">Run Step Sequence</button>
+							<button class="btn dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a href="#" id="rotate90">Rotate 90 Degrees CW</a></li>
+							<li><a href="#" id="rotate180">Rotate 180 Degrees CW</a></li>
+							<li><a href="#" id="rotateneg90">Rotate 90 Degrees CCW</a></li>
+							<li><a href="#" id="move1cw">Shift CW</a></li>
+							<li><a href="#" id="move1ccw">Shift CCW</a></li>
+							<li><a href="#" id="disablestepperbtn">Disable Stepper</a></li>
+						</ul>
+						</div>
+						<div id="elapsedtime" style="min-height: 25px;"></div>
+						<div style=""><button id="takereadingbtn" class="btn btn-primary" type="button"  href="#EnterNameHome" data-toggle="modal">Acquire Waveform</button></div>
+					</section>
+				</div>
+			<div class="span6">
+				<div id="highchart"></div>
+			</div>
+			<div class="span3">
+				<h5 style="text-align: center">Force Control and Overview</h5>
+				<div style="text-align: center">
+				<div id="solenoida" style="display: inline-block; margin-right: 30px;"><input type="text" value="0" id="sl4" style=""></div>
+				<div id="solenoidb" style="display: inline-block; margin-bottom: 20px;"><input type="text" value="0" id="sl5" style=""></div>
+				<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Channel:</th>
+						<th style="color: #444444; text-align: center; min-width: 40px;">A</th>
+						<th style="color: #0480be; text-align: center; min-width: 40px;">B</th>
+					</tr>
+				</thead>
+  …					<tr>
+						<th style="font-weight: normal;">Duty Cycle:</th>
+						<th id="solenoidavalue" style="color: #444444; text-align: center;"><strong>N/A</strong></th>
+						<th id="solenoidbvalue" style="color: #0480be; text-align: center;"><strong>N/A</strong></th>
+					</tr>
+					<tr>
+						<th style="font-weight: normal;">Pressure:</th>
+						<th id="sgvalue" style="color: #444444; text-align: center;"><strong>N/A</strong></th>
+						<th id="ffvalue" style="color: #0480be; text-align: center;"></strong>N/A</strong></th>
+					</tr>
+					<tr>
+						<th style="font-weight: normal;">Current:</th>
+						<th id="ChannelACurrent" style="color: #444444; text-align: center;"><strong>N/A</strong></th>
+						<th id="ChannelBCurrent" style="color: #0480be; text-align: center;"><strong>N/A</strong></th>
+					</tr>
+				</table>
+				</div>
+			</div>
+			
+			</div>
+			</div>
+			<div class="row" style="padding-top: 20px;">
+			<div id="analyzepanel" class="tabbable tabs-left hide">
+              <ul class="nav nav-tabs">
+                <li class="active"><a id="acquiredwavepaneid" href="#AcquiredWaveformsPane" data-toggle="tab" style="width: 140px">Time Domain</a></li>
+				<li class=""><a id="liveviewid" href="#LiveViewPane" data-toggle="tab">Frequency Domain</a></li>
+<button id="gotoR" style="width: 150px; margin-top: 40px;" class="btn" type="button" href="/rstudio/" data-toggle="modal">Open RStudio</button>				
+<div style="min-height: 150px;" id="analyzebuttonbox"><button id="takereadingbtn2" class="btn btn-primary" type="button" href="#EnterName" data-toggle="modal" style="margin-top: 20px; width: 150px">Acquire Waveform</button></div>
+
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="AcquiredWaveformsPane" style="width: 100%">
+                  <div id="ushighchart"></div>
+                </div>
+                <div class="tab-pane" id="LiveViewPane" style="width: 100%">
+			<div id="freqchart"></div>
+                </div>
+              </div>
+            </div>
+				</div>
+				</div>
+				</div>
+
+      <div id="push"></div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">Courtesy to Dr. Cuitino who gave me the oppurtunity to work on this project. Special thanks to Dr. Awad and Shilan who provided guidance. Credit to all the faceless developers of open source software and hardware that made this possible.</p>
+      </div>
+    </div>
+  </body>
+</html>
