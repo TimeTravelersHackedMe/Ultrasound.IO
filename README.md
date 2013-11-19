@@ -1,6 +1,6 @@
 PharmaSonic
 ===========
-This is my senior design project - I got carried away with it and I'm still working on it. It serves as a great example of how to connect a robotic interface (Arduino via BreakoutJS), data-visualization tool (HighchartsJS), oscilloscope (Tektronix API), and wrap them all up into a web interface that is easy to use (Bootstrap). I made it because LabVIEW and MATLAB are not very flexible and suck at interfacing with the Arduino.
+This is my senior design project - I got carried away with it and I'm still working on it. It serves as a great example of how to connect a robotic interface (Arduino via BreakoutJS), data-visualization tool (HighchartsJS), oscilloscope (Tektronix API), and wrap them all up into a web interface that is easy to use (Bootstrap). I made it because LabVIEW and MATLAB are not very flexible and suck at interfacing with the Arduino. Right now the Arduino connection features are complete and the Tektronix AJAX call is hardcoded to take a spectral envelope that is 100,000 time units long (that consists of over 5,000,000 measurements taken by the oscilloscope).
 ## Background
 The pharmaceutical sector is expressing an increasing interest in modern non-destructive testing techniques. They are using new technologies and materials that require strict quality control. One such method that is quick, safe, and reliable involves using ultrasound transducers to find the speed of sound in a pharmaceutical tablet. The speed of sound can be related to important material properties called elastic constants. Using the relationships that these elastic constants represent, important material properties such as weight, thickness, and hardness can be calculated.
 ## Problem
@@ -17,7 +17,7 @@ The piezoelectric ultrasound transducers are driven using a square wave pulser (
 
 ## Issues
 + Connectivity to the oscilloscope is established using AJAX calls in Javascript - older versions of the TDS3000 that do not add "Allow Cross Origin: *" into their HTTP header will not be able to connect to the website unless the web browser is run with security features off
-+ Tektronix options are not complete
++ Tektronix options are not complete (right now it is hard coded to take a 100,000 point spectral envelope)
 
 ## Future Features
 These are features I plan on implementing before I finish my stay at Rutgers:
