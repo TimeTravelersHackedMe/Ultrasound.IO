@@ -17,7 +17,7 @@ The piezoelectric ultrasound transducers are driven using a square wave pulser (
 
 ## Issues
 + Connectivity to the oscilloscope is established using AJAX calls in Javascript - older versions of the TDS3000 that do not add "Allow Cross Origin: *" into their HTTP header will not be able to connect to the website unless the web browser is run with security features off
-+ Appears to only work with the latest version of Google Chrome
++ Tektronix options are not complete
 
 ## Future Features
 These are features I plan on implementing before I finish my stay at Rutgers:
