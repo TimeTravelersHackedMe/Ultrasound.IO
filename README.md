@@ -17,13 +17,14 @@ The piezoelectric ultrasound transducers are driven using a square wave pulser (
 ## Issues
 + Connectivity to the oscilloscope is established using AJAX calls in Javascript - older versions of the TDS3000 that do not add "Allow Cross Origin: *" into their HTTP header will not be able to connect to the website unless the web browser is run with security features off
 + Appears to only work with the latest version of Google Chrome
+
 ## Future Features
-These are features I plan on implementing:
+These are features I plan on implementing before I finish my stay at Rutgers:
 + Ability to download data as a CSV (this will require hosting the website on a host that requires PHP)
 + Upload oscilloscope settings file/download oscilloscope settings file
 + Magic button that combines all the features into a 5-10 second demonstration
-+ Connect to device over VPN
-+ 
+
 Features that I would implement if anyone ever became interested in this project:
 + Recompile BreakoutJS executable to include connectivity with the Tektronix API
-+ Integrate with Digital Ocean API to spin up 32-server instance and run data through R for computing (Seewave in particular) 
++ Integrate with Digital Ocean API to spin up 32-server instance and run data through R for computing (Seewave in particular)
++ Add encrypted tunnel for secure internet control
