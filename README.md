@@ -1,6 +1,6 @@
 PharmaSonic
 ===========
-I got carried away with my senior design project and continued working on it. It serves as a great example of how to connect a data-visualization tool
+This is my senior design project - I got carried away with it and I'm still working on it. It serves as a great example of how to connect a robotic interface (Arduino via BreakoutJS), data-visualization tool (HighchartsJS), oscilloscope (Tektronix API), and wrap them all up into a web interface that is easy to use (Bootstrap). I made it because LabVIEW and MATLAB are not very flexible and suck at interfacing with the Arduino.
 ## Background
 The pharmaceutical sector is expressing an increasing interest in modern non-destructive testing techniques. They are using new technologies and materials that require strict quality control. One such method that is quick, safe, and reliable involves using ultrasound transducers to find the speed of sound in a pharmaceutical tablet. The speed of sound can be related to important material properties called elastic constants. Using the relationships that these elastic constants represent, important material properties such as weight, thickness, and hardness can be calculated.
 ## Problem
