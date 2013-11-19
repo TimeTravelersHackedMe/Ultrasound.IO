@@ -14,6 +14,7 @@ The piezoelectric ultrasound transducers are driven using a square wave pulser (
 + Stepper motor provides high resolution turning accuracy along with high torque using a 200-step 2A/coil step motor that is driven with a Pololu DRV8825 which provides 32 microsteps per step
 + The force that the solenoid exerts is controlled by pulse-width modulation (e.g. 50% on, 50% off at a high frequency)
 + Force sensors (strain gauges) are connected using integrated circuits that eliminate the need for complex op-amps (TI INA125P)
+
 ## Issues
 + Connectivity to the oscilloscope is established using AJAX calls in Javascript - older versions of the TDS3000 that do not add "Allow Cross Origin: *" into their HTTP header will not be able to connect to the website unless the web browser is run with security features off
 + Appears to only work with the latest version of Google Chrome
