@@ -23,8 +23,9 @@ These are features I plan on implementing before I finish my stay at Rutgers:
 + Ability to download data as a CSV (this will require hosting the website on a host that requires PHP)
 + Upload oscilloscope settings file/download oscilloscope settings file
 + Magic button that combines all the features into a 5-10 second demonstration
++ Configure discrete fourier transform properly
 
-Features that I would implement if anyone ever became interested in this project:
+Features that I would want to implement if this was my job:
 + Recompile BreakoutJS executable to include connectivity with the Tektronix API
 + Integrate with Digital Ocean API to spin up 32-server instance and run data through R for computing (Seewave in particular)
 + Add encrypted tunnel for secure internet control
