@@ -1,8 +1,6 @@
 PharmaSonic
 ===========
 This is my senior design project - I got carried away with it and I'm still working on it. It serves as a great example of how to connect a robotic interface (Arduino via BreakoutJS), data-visualization tool (HighchartsJS), oscilloscope (Tektronix API), and wrap them all up into a web interface that is easy to use (Bootstrap). I made it because LabVIEW and MATLAB are not very flexible and are not good at interfacing with the Arduino. Right now the **Arduino connection features are complete** and the Tektronix AJAX call is hardcoded to take a spectral envelope that is 100,000 time units long (which actually ends up being 100,000 * 2ns = 0.2 milliseconds).
-## Linux (Ubuntu) Instructions
-sudo apt-get install -y git apache2 php5 && cd /var/www && git clone THISREPOURL .
 ## Background
 The pharmaceutical sector is expressing an increasing interest in modern non-destructive testing techniques. They are using new technologies and materials that require strict quality control. One such method that is quick, safe, and reliable involves using ultrasound transducers to find the speed of sound in a pharmaceutical tablet. The speed of sound can be related to important material properties called elastic constants. Using the relationships that these elastic constants represent, important material properties such as weight, thickness, and hardness can be calculated.
 ## Problem
@@ -16,6 +14,20 @@ The piezoelectric ultrasound transducers are driven using a square wave pulser (
 + Stepper motor provides high resolution turning accuracy along with high torque using a 200-step 2A/coil step motor that is driven with a Pololu DRV8825 which provides 32 microsteps per step
 + The force that the solenoid exerts is controlled by pulse-width modulation (e.g. 50% on, 50% off at a high frequency)
 + Force sensors (strain gauges) are connected using integrated circuits that eliminate the need for complex op-amps (TI INA125P)
+
+## Instructions
+#### Windows:
+1 Install WAMP
+2 Download this repo
+3 Copy/paste all files to the WAMP www directory (C:/wamp/www by default)
+4. Open the browser and go to http://localhost
+#### Linux
+Debian-based distributions:
+1. Enter sudo apt-get install -y git apache2 php5 && cd /var/www && git clone THISREPOURL . in the terminal
+2. Open the browser and go to http://localhost
+Red Hat Enterprise Linux based distributions:
+1. Enter sudo yum install -y apache2 git php5 && cd /var/www && git clone THISREPO . in the terminal
+2. Open the browser and go to http://localhost
 
 ## Issues
 + Connectivity to the oscilloscope is established using AJAX calls in Javascript - older versions of the TDS3000 that do not add "Allow Cross Origin: *" into their HTTP header will not be able to connect to the website unless the web browser is run with security features off
