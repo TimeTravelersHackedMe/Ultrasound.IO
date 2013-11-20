@@ -23,9 +23,12 @@ The piezoelectric ultrasound transducers are driven using a square wave pulser (
 4. Open the browser and go to http://localhost
 #### Linux
 Debian-based distributions:
+
 1. Enter sudo apt-get install -y git apache2 php5 && cd /var/www && git clone THISREPOURL . in the terminal
 2. Open the browser and go to http://localhost
+
 Red Hat Enterprise Linux based distributions:
+
 1. Enter sudo yum install -y apache2 git php5 && cd /var/www && git clone THISREPO . in the terminal
 2. Open the browser and go to http://localhost
 
