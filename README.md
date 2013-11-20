@@ -20,7 +20,7 @@ The piezoelectric ultrasound transducers are driven using a square wave pulser (
 + Force sensors (strain gauges) are connected using integrated circuits that eliminate the need for complex op-amps (TI INA125P)
 
 ## Instructions
-#### Windows:
+#### Windows
 
 1. Install WAMP
 2. Download this repo
@@ -38,6 +38,10 @@ Red Hat Enterprise Linux based distributions:
 1. Enter sudo yum install -y apache2 git php5 && cd /var/www && git clone THISREPO . in the terminal
 2. Open the browser and go to http://localhost
 
+#### Mac
+
+1. Anyone know how to download and launch a PHP web server on a Mac?
+2. Let me know.
 ## Issues
 + Connectivity to the oscilloscope is established using AJAX calls in Javascript - older versions of the TDS3000 that do not add "Allow Cross Origin: *" into their HTTP header will not be able to connect to the website unless the web browser is run with security features off
 + Tektronix options are not complete (right now it is hard coded to take a 100,000 point spectral envelope)
