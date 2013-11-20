@@ -1,6 +1,6 @@
 PharmaSonic
 ===========
-This project is a website bridges the gap between the Arduino and a Tektronix oscilloscope. It was (and still is) a senior design project that entails building a device that can test pharmaceutical tablets with ultrasound - hence the name PharmaSonic.
+This project is a website bridges the gap between the Arduino and a Tektronix oscilloscope. It was (and still is) a senior design project that entails building a device that can test pharmaceutical tablets with ultrasound - hence the name PharmaSonic. The project utilizes various tools such as BreakoutJS (an Arduino USB-to-websocket client), HighchartJS (for data-visualization), the Tektronix API (for oscilloscope connectivity), jQuery (for user experience), and fft.js (a Fourier Transform library for frequency analysis).
 
 Right now all the **Arduino connectivity features are complete**. Users can control stepper motors from a web GUI that allows them to define the angular velocity and acceleration of a stepper motor. It also allows the user to control two pins on the Arduino using PWM (Pulse Width Modulation). On top of that, the web interface allows real-time monitoring of two different pin voltages.
 
