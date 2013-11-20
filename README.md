@@ -26,6 +26,9 @@ The piezoelectric ultrasound transducers are driven using a square wave pulser (
 2. Download this repo
 3. Copy/paste all files to the WAMP www directory (C:/wamp/www by default)
 4. Open the browser and go to http://localhost
+5. Download and open BreakoutJS for Windows
+6. Connect your Arduino over USB with the BreakoutJS application
+7. Set up a local network with the oscilloscope
 
 #### Linux
 Debian-based distributions:
@@ -42,6 +45,7 @@ Red Hat Enterprise Linux based distributions:
 
 1. Anyone know how to download and launch a PHP web server on a Mac?
 2. Let me know.
+
 ## Issues
 + Connectivity to the oscilloscope is established using AJAX calls in Javascript - older versions of the TDS3000 that do not add "Allow Cross Origin: *" into their HTTP header will not be able to connect to the website unless the web browser is run with security features off
 + Tektronix options are not complete (right now it is hard coded to take a 100,000 point spectral envelope)
