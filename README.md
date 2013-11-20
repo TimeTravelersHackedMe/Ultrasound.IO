@@ -17,10 +17,12 @@ The piezoelectric ultrasound transducers are driven using a square wave pulser (
 
 ## Instructions
 #### Windows:
+
 1 Install WAMP
 2 Download this repo
 3 Copy/paste all files to the WAMP www directory (C:/wamp/www by default)
 4. Open the browser and go to http://localhost
+
 #### Linux
 Debian-based distributions:
 
