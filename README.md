@@ -4,7 +4,7 @@ This project is a website bridges the gap between the Arduino and a Tektronix os
 
 Right now all the **Arduino connectivity features are complete**. Users can control stepper motors from a web GUI that allows them to define the angular velocity and acceleration of a stepper motor. It also allows the user to control two pins on the Arduino using PWM (Pulse Width Modulation). On top of that, the web interface allows real-time monitoring of two different pin voltages.
 
-For now, the **Tektronix API interface is currently hardcoded to take 10 10,000 point spectral envelopes and concatonate them. This encompasses over 5 million data points since the envelopes represent the minimum and maximum value over 500 sample pulses. This is done in less than a minute.
+For now, the **Tektronix API interface is currently hardcoded to take a 100,000 point spectral envelopes** through concatenation. This encompasses over **5 million data points** since the envelopes represent the minimum and maximum value over 512 sample pulses. This is done in less than a minute.
 ## Background
 The pharmaceutical sector is expressing an increasing interest in modern non-destructive testing techniques. They are using new technologies and materials that require strict quality control. One such method that is quick, safe, and reliable involves using ultrasound transducers to find the speed of sound in a pharmaceutical tablet. The speed of sound can be related to important material properties called elastic constants. Using the relationships that these elastic constants represent, important material properties such as weight, thickness, and hardness can be calculated.
 ## Problem
