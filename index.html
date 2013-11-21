@@ -2,13 +2,14 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>PharmaSonic Web Control</title>
+		<title>Ultrasound.IO</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Pharmaceutical tablet testing via Ultrasonic methods.">
 		<meta name="author" content="Brian Zalewski" >
 
+    <link href="fira.css" rel="stylesheet">
 		<link href="style.css" rel="stylesheet">
-		<link href="http://fonts.googleapis.com/css?family=Signika" rel="stylesheet" type="text/css">
+
 		<link rel="shortcut icon" href="img/favicon.png">
 
 		<script src="js/breakout.js"></script>
@@ -16,6 +17,7 @@
 		<script src="js/onready.js"></script>
 		<script src="js/real.js"></script>
 		<script src="js/complex.js"></script>
+    <script src="js/export-csv.js"></script>
 	</head>
 
 	<body>
@@ -29,7 +31,7 @@
               <span class="icon-bar">hi</span>
             </button>
 			<img src="img/logo.png" class="brand" style="height: 40px">
-            <a class="brand" href="http://megabyte.io/" style="padding-top:20px; font-family: Signika; font-size: 24px;">PharmaSonic Web Control</a>
+            <a class="brand" href="http://megabyte.io/" style="padding-top:20px; font-family: "Fira Sans"; font-size: 24px;">Ultrasound.IO</a>
             <div class="nav-collapse collapse" style="padding-top: 20px">
               <ul class="nav pull-right">
                 <li id="controlid" class="active"><a href="#" id="controlbtn">Control</a></li>
@@ -308,7 +310,7 @@
               <ul class="nav nav-tabs">
                 <li class="active"><a id="acquiredwavepaneid" href="#AcquiredWaveformsPane" data-toggle="tab" style="width: 140px">Time Domain</a></li>
 				<li class=""><a id="liveviewid" href="#LiveViewPane" data-toggle="tab">Frequency Domain</a></li>
-<button id="gotoR" style="width: 150px; margin-top: 40px;" class="btn" type="button" href="/rstudio/" data-toggle="modal">Open RStudio</button>				
+<button id="gotoR" style="width: 150px; margin-top: 40px;" class="btn" type="button" href="http://r.ultrasound.io/coming-soon" data-toggle="modal">Open RStudio</button>				
 <div style="min-height: 150px;" id="analyzebuttonbox"><button id="takereadingbtn2" class="btn btn-primary" type="button" href="#EnterName" data-toggle="modal" style="margin-top: 20px; width: 150px">Acquire Waveform</button></div>
 
               </ul>

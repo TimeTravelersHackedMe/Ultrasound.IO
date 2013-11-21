@@ -9,7 +9,7 @@
  */
 @font-face {
     font-family: "Fira";
-    src: url("/fonts/FiraMono-Bold.ttf") format('ttf');
+    src: url("fonts/FiraMono-Bold.ttf") format('ttf');
 }
 .clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
 .clearfix:after{clear:both;}

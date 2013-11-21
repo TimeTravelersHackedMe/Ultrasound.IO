@@ -30,11 +30,11 @@ $.get("scan.php", function(data) {var names = (data.substring(0, data.length -1)
 			data.splice(0,1);
 			data.splice(numbPoints,1);
 			data.splice(numbPoints,1);
-			//alert(data);
+			alert(data);
 			//alert(typeof eval("FloatedArray" + i));
 			//var FloatedArray = new Float64Array(numbPoints);
 			data = $.map(data, function(value){return parseFloat(value);});
-			var fft = new FFT.complex(20, true);
+			var fft = new FFT.complex(100, true);
 			var output = [];
 			var input = data;
 			fft.simple(output, input, 'complex');
