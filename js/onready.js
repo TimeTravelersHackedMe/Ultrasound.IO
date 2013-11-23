@@ -468,6 +468,7 @@ $.get("scan.php", function(data) {var names = (data.substring(0, data.length -1)
 });
 var RecordLength;
 var HorizontalDelay;
+// This is where I'm processing the data..
 function AJAXthePoints(StartPoint,FinishPoint) {
 		var StartWave = Math.floor(StartPoint / 10000);
 		var FinishWave = Math.ceil(FinishPoint / 10000);
