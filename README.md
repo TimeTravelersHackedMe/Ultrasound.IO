@@ -1,6 +1,6 @@
 Ultrasound I/O
 ===========
-This project is a website that bridges the gap between the Arduino (an open-source robotic interface) and a Tektronix oscilloscope (used to monitor sensors with "laboratory" precision). It was (and still is) a senior design project that entails building a device that can test pharmaceutical tablets with ultrasound. The project utilizes technology from:
+This project is a website that bridges the gap between the Arduino (an open-source robotic interface) and a Tektronix oscilloscope (used to monitor sensors with "laboratory" precision). It was a senior design project that entails building a device that can test pharmaceutical tablets with ultrasound. The project utilizes technology from:
 
 + [BreakoutJS](http://breakoutjs.com/) (Arduino USB-to-websocket client and Javascript library)
 + [HighchartJS](http://www.highcharts.com/) (data-visualization) 
