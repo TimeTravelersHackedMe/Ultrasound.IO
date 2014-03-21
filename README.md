@@ -1,7 +1,5 @@
 Ultrasound I/O
 ===========
-*I am currently turning this project into two different WordPress plugins, you can follow my progress at megabyte.io*
-
 This project is a website that bridges the gap between the Arduino (an open-source robotic interface) and a Tektronix oscilloscope (used to monitor sensors with "laboratory" precision). It was (and still is) a senior design project that entails building a device that can test pharmaceutical tablets with ultrasound. The project utilizes technology from:
 
 + [BreakoutJS](http://breakoutjs.com/) (Arduino USB-to-websocket client and Javascript library)
@@ -13,7 +11,7 @@ This project is a website that bridges the gap between the Arduino (an open-sour
 
 Right now all the **Arduino connectivity features are complete**. Users can control stepper motors from a web GUI that allows them to define the angular velocity and acceleration of a stepper motor. It also allows the user to control two pins on the Arduino using PWM (Pulse Width Modulation). It also provides real-time monitoring of two different pin voltages.
 
-For now, the **Tektronix API interface is currently hardcoded to take a 100,000 point spectral envelopes** through concatenation. This encompasses over **5 million data points** since the envelopes represent the minimum and maximum value over 512 sample pulses. This is done in *less than a minute*.
+For now, the **Tektronix API interface is currently hardcoded to take 100,000 point spectral envelopes** through concatenation. This encompasses over **5 million data points** since the envelopes represent the minimum and maximum value over 512 sample pulses. This is done in *less than a minute*.
 ## Background
 The pharmaceutical sector is expressing an increasing interest in modern non-destructive testing techniques. They are using new technologies and materials that require strict quality control. One such method that is quick, safe, and reliable involves using ultrasound transducers to find the speed of sound in a pharmaceutical tablet. The speed of sound can be related to important material properties called elastic constants. Using the relationships that these elastic constants represent, important material properties such as weight, thickness, and hardness can be calculated.
 ## Problem
@@ -45,28 +43,11 @@ Debian-based distributions:
 1. Enter sudo apt-get install -y git apache2 php5 && cd /var/www && git clone THISREPOURL . in the terminal
 2. Open the browser and go to http://localhost
 
-Red Hat Enterprise Linux based distributions:
+RHEL based distributions:
 
 1. Enter sudo yum install -y apache2 git php5 && cd /var/www && git clone THISREPO . in the terminal
 2. Open the browser and go to http://localhost
 
-#### Mac
-
-1. Anyone know how to download and launch a PHP web server on a Mac?
-2. Let me know.
-
 ## Issues
 + Connectivity to the oscilloscope is established using AJAX calls in Javascript - older versions of the TDS3000 that do not add "Allow Cross Origin: *" into their HTTP header will not be able to connect to the website unless the web browser is run with security features off
 + Tektronix options are not complete (right now it is hard coded to take a 100,000 point spectral envelope)
-
-## Future Features
-These are features I plan on implementing before I finish my stay at Rutgers:
-+ Ability to download data as a CSV (this will require hosting the website on a host that requires PHP)
-+ Upload oscilloscope settings file/download oscilloscope settings file
-+ Magic button that combines all the features into a 5-10 second demonstration
-+ Configure discrete fourier transform properly
-
-Features that I would want to implement if this was my job:
-+ Recompile BreakoutJS executable to include connectivity with the Tektronix API
-+ Integrate with Digital Ocean API to spin up 32-server instance and run data through R for computing (Seewave in particular)
-+ Add encrypted tunnel for secure internet control
